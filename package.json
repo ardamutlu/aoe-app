@@ -11,7 +11,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "docker:build": "docker build -t aoe-app .",
+    "docker:run": "docker run -p 4200:4200 aoe-app"
   },
   "private": true,
   "dependencies": {
