@@ -1,0 +1,42 @@
+<form [formGroup]="form">
+  <mat-card class="mb-3">
+    <mat-card-content>
+      <div class="mb-6">
+        <div class="font-bold mb-3">Ages</div>
+        <mat-button-toggle-group formControlName="age" aria-label="Age">
+          @for (age of ages; track index; let index = $index) {
+            <mat-button-toggle [value]="age.value">{{
+              age.key
+            }}</mat-button-toggle>
+          }
+        </mat-button-toggle-group>
+      </div>
+      <div>
+        <div class="font-bold mb-3">Costs</div>
+        <ng-container formArrayName="costs">
+          @for (
+            cost of costsFormArray.controls;
+            track index;
+            let index = $index
+          ) {
+            <div
+              class="flex items-center gap-6"
+              [formGroup]="getCostFormGroup(index)"
+            >
+              <mat-checkbox formControlName="checked">{{
+                cost.value.name
+              }}</mat-checkbox>
+              <mat-slider min="0" max="200" [disabled]="!cost.value.checked">
+                <input formControlName="min" matSliderStartThumb />
+                <input formControlName="max" matSliderEndThumb />
+              </mat-slider>
+              <div>
+                {{ cost.getRawValue().min }}-{{ cost.getRawValue().max }}
+              </div>
+            </div>
+          }
+        </ng-container>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

@@ -1,0 +1,12 @@
+<div>
+  <app-table-filter></app-table-filter>
+  @if (hasData) {
+    <app-table
+      [dataSource]="dataSource"
+      [columnDefinitions]="columnDefinitions"
+      [paginatorOptions]="paginatorOptions"
+    ></app-table>
+  } @else {
+    <app-not-found-card>Data not found...</app-not-found-card>
+  }
+</div>

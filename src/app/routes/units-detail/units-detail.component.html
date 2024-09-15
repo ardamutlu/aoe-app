@@ -1,0 +1,58 @@
+@if (unit(); as data) {
+  <mat-list>
+    <mat-list-item>
+      <div matListItemTitle>ID</div>
+      <div matListItemLine>{{ data?.id }}</div>
+    </mat-list-item>
+    <mat-list-item>
+      <div matListItemTitle>Name</div>
+      <div matListItemLine>{{ data?.name }}</div>
+    </mat-list-item>
+    <mat-list-item>
+      <div matListItemTitle>Description</div>
+      <div matListItemLine>{{ data?.description }}</div>
+    </mat-list-item>
+    @if (data?.cost?.Wood) {
+      <mat-list-item>
+        <div matListItemTitle>Wood</div>
+        <div matListItemLine>{{ data?.cost?.Wood }}</div>
+      </mat-list-item>
+    }
+    @if (data?.cost?.Food) {
+      <mat-list-item>
+        <div matListItemTitle>Food</div>
+        <div matListItemLine>{{ data?.cost?.Food }}</div>
+      </mat-list-item>
+    }
+    @if (data?.cost?.Gold) {
+      <mat-list-item>
+        <div matListItemTitle>Gold</div>
+        <div matListItemLine>{{ data?.cost?.Gold }}</div>
+      </mat-list-item>
+    }
+    <mat-list-item>
+      <div matListItemTitle>Buid Time</div>
+      <div matListItemLine>{{ data?.build_time }}</div>
+    </mat-list-item>
+    <mat-list-item>
+      <div matListItemTitle>Reload Time</div>
+      <div matListItemLine>{{ data?.reload_time }}</div>
+    </mat-list-item>
+    <mat-list-item>
+      <div matListItemTitle>Hit Points</div>
+      <div matListItemLine>{{ data?.hit_points }}</div>
+    </mat-list-item>
+    <mat-list-item>
+      <div matListItemTitle>Attack</div>
+      <div matListItemLine>{{ data?.attack }}</div>
+    </mat-list-item>
+    <mat-list-item>
+      <div matListItemTitle>Accuracy</div>
+      <div matListItemLine>{{ data?.accuracy }}</div>
+    </mat-list-item>
+  </mat-list>
+} @else {
+  <app-not-found-card
+    ><strong>"{{ id() }}"</strong> not found...</app-not-found-card
+  >
+}
