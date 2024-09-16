@@ -12,6 +12,7 @@ import { routes } from './app.routes';
 import { provideTitleStrategy } from './core/services/title.strategy';
 import { provideErrorHandler } from './core/services/error-handler.service';
 import { httpInterceptor } from './core/services/http.interceptor';
+import { provideBreadcrumb } from './core/services/breadcrumb.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,5 +23,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding()),
     provideErrorHandler(),
     provideTitleStrategy(),
+    provideBreadcrumb(),
   ],
 };

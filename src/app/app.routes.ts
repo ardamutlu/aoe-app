@@ -14,15 +14,14 @@ export const routes: Routes = [
       },
       {
         path: 'units',
+        title: 'Units',
         children: [
           {
             path: '',
-            title: 'Units',
             loadComponent: () => import('./routes/units/units.component'),
           },
           {
             path: 'detail/:id',
-            title: 'Detail',
             resolve: {
               unit: unitsDetailResolver,
             },
